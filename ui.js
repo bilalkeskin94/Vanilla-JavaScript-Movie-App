@@ -39,4 +39,7 @@ class UI {
       `;
     });
   }
+  deleteFilmFromUI(element) {
+    element.parentElement.parentElement.remove();
+  }
 }
