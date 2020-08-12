@@ -10,6 +10,10 @@ eventListeners();
 
 function eventListeners() {
   form.addEventListener("submit", addFilm);
+  document.addEventListener("DOMContentLoaded", () => {
+    let films = storage.getFilmsFromStorage();
+    ui.loadAllFilms(films);
+  });
 }
 
 function addFilm(e) {
@@ -22,7 +26,7 @@ function addFilm(e) {
     //Yeni Film
     const newFilm = new Film(title, director, url);
     ui.addFilmToUI(newFilm); //UI film ekleme
-    storage.addFilmToStorage(newFilm);
+    storage.addFilmToStorage(newFilm); //Storage film eklme
     ui.displayMessages("Film eklendi", "success");
     ui.clearInput(titleElement, urlElement, directorElement);
   }
