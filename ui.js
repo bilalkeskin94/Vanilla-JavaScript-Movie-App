@@ -42,4 +42,11 @@ class UI {
   deleteFilmFromUI(element) {
     element.parentElement.parentElement.remove();
   }
+  clearAllFilmsFromUI() {
+    const filmList = document.getElementById("films");
+    // films.innerHTML = "";
+    while (filmList.firstElementChild !== null) {
+      filmList.firstElementChild.remove();
+    }
+  }
 }
